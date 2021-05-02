@@ -107,7 +107,7 @@ echo $directory_path$directory_root
 
 filename=""
 case $generator_type in
-    api)
+    service)
         filename=${server_name}.conf
         cp ./stub/nginx.api.stub $filename
 
