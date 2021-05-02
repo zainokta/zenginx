@@ -64,9 +64,9 @@ echo "zainokta@gmail.com"
 echo ""
 echo "This generator only generate simple NGINX config, you need to configure manually for another config if necessary"
 echo "There are two options for this generator"
-echo "1. For API config generator"
-echo "ex. web service that doesn't need to serve static file"
-echo "2. For Index file config generator"
+echo "1. For service config generator"
+echo "ex. web service that using ip:port to run"
+echo "2. For index file config generator"
 echo "ex. HTML CSS or PHP Website"
 echo ""
 echo "Choose your option:"
@@ -110,6 +110,10 @@ case $generator_type in
     api)
         filename=${server_name}.conf
         cp ./stub/nginx.api.stub $filename
+
+        echo -e "\nEnter your service endpoint (localhost:3000): "
+        read proxy_pass
+        sed -i "s|proxy_pass_placeholder|$proxy_pass|gi" "$filename"
         ;;
     index)
         filename=${server_name}.conf
