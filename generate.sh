@@ -131,4 +131,7 @@ mv $filename /etc/nginx/sites-available/
 # create symlink to sites enabled
 ln -s /etc/nginx/sites-available/$filename /etc/nginx/sites-enabled/
 
-systemcyl reload nginx
+# reload nginx service
+service nginx reload
+
+# TODO : CERTBOT
