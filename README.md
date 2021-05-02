@@ -4,8 +4,7 @@ Simple NGINX config file generator
 # How To Run
 
 ```
-sudo chmod +x ./generate.sh
-./generate.sh
+sudo ./generate.sh
 ````
 
 # Connection upgrade issue 
@@ -17,4 +16,3 @@ map $http_upgrade $connection_upgrade {
 }
 ```
 
-I will update README later
