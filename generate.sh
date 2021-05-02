@@ -134,4 +134,23 @@ ln -s /etc/nginx/sites-available/$filename /etc/nginx/sites-enabled/
 # reload nginx service
 service nginx reload
 
-# TODO : CERTBOT
+echo -e "\nChecking if certbot is installed..."
+certbot_loc=$(which cerbot)
+echo $certbot_loc
+
+if [[ $certbot_loc == "" ]]; then
+    echo -e "\nDo you want to install certbot?[Y/n]"
+    read install_certbot
+
+    if [[ $install_certbot == 'y' ]]; then
+        add-apt-repository ppa:certbot/certbot
+        apt install python-certbot-nginx
+    else
+        exit    
+    fi
+fi
+
+certbot --nginx -d $server_name
+
+# reload nginx service again
+service nginx reload
