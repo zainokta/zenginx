@@ -135,7 +135,7 @@ ln -s /etc/nginx/sites-available/$filename /etc/nginx/sites-enabled/
 service nginx reload
 
 echo -e "\nChecking if certbot is installed..."
-certbot_loc=$(which cerbot)
+certbot_loc=$(which certbot)
 echo $certbot_loc
 
 if [[ $certbot_loc == "" ]]; then
