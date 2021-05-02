@@ -71,10 +71,10 @@ echo "ex. HTML CSS or PHP Website"
 echo ""
 echo "Choose your option:"
 
-option_generator_type=("API" "Index")
+option_generator_type=("Service" "Index")
 generator_type=""
 case `select_opt ${option_generator_type[@]}` in
-    0) generator_type="api";;
+    0) generator_type="service";;
     1) generator_type="index";;
 esac
 
